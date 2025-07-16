@@ -1,4 +1,6 @@
 'use client';
+import Link from 'next/link';
+import Image from 'next/image';
 import Form from '../components/Form';
 
 export default function Home() {
@@ -13,18 +15,19 @@ export default function Home() {
           bg-black/30 backdrop-blur-sm
         "
       >
-        <a href="/" className="flex items-center gap-2">
-          <img
+        <Link href="/" className="flex items-center gap-2">
+          <Image
             src="/images/logo.png"
             alt="Logo"
             width={40}
             height={40}
             style={{ display: 'inline-block' }}
+            priority
           />
           <span className="text-xl font-semibold text-white">
             Workshop
           </span>
-        </a>
+        </Link>
       </header>
 
       {/* MAIN */}
