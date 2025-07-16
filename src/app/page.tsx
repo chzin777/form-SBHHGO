@@ -52,7 +52,7 @@ export default function Home() {
               &{' '}
               EFICIÊNCIA
               <br />
-              <span className="text-5xl text-lime-300 md:text-6xl">EM HOTELARIA</span>
+              <span className="text-4xl text-lime-300 md:text-6xl">EM HOTELARIA</span>
             </h1>
             <h2 className="text-white text-xl sm:text-2xl md:text-3xl mb-4 text-shadow">
               DIA {' '}
