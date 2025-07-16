@@ -1,3 +1,4 @@
+// HOME PAGE CORRIGIDA
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -6,13 +7,13 @@ import Form from '../components/Form';
 export default function Home() {
   return (
     <>
-      {/* HEADER DIRETO NO PAGE */}
+      {/* HEADER */}
       <header
         className="
           fixed top-0 left-0 w-full z-50
           px-8 py-4
           flex justify-center items-center
-          bg-black/30 backdrop-blur-sm
+          bg-black/15 backdrop-blur-sm
         "
       >
         <Link href="/" className="flex items-center gap-2">
@@ -31,17 +32,16 @@ export default function Home() {
       </header>
 
       {/* MAIN */}
-      <main className="relative pt-28 md:pt-28 min-h-screen overflow-y-auto md:h-screen md:overflow-hidden">
-        {/* Fundo borrado sem overlay */}
+      <main className="relative pt-28 min-h-screen">
+        {/* Fundo borrado */}
         <div
           className="
-            absolute inset-0 
+            fixed inset-0 
             bg-[url('/images/bg1.png')] bg-cover bg-center 
-            filter blur-sm scale-105
+            filter blur-xs scale-105
             -z-10
           "
         />
-
         {/* Conteúdo */}
         <div className="relative flex flex-col md:flex-row items-center justify-between h-full px-4 sm:px-6 md:px-20 gap-8 pb-10 max-w-[100vw]">
           {/* TEXTO */}
@@ -52,7 +52,7 @@ export default function Home() {
               &{' '}
               EFICIÊNCIA
               <br />
-              <span className='text-lime-300 text-8xl'>EM HOTELARIA</span>
+              <span className='text-lime-300 text-6xl'>EM HOTELARIA</span>
             </h1>
             <h2 className="text-white text-xl sm:text-2xl md:text-3xl mb-4 text-shadow">
               DIA {' '}
@@ -64,7 +64,6 @@ export default function Home() {
               Inscreva-se no nosso simpósio e descubra como transformar seus processos.
             </p>
           </div>
-
           {/* FORMULÁRIO */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-end md:mb-4">
             <Form />

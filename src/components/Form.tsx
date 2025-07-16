@@ -47,7 +47,7 @@ export default function Form() {
     // Payload correto para o n8n/HubSpot
     const payload = {
       firstName: nome,           // nome do campo, vai para "First Name"
-      lastName: " - WORKSHOP",      // fixo, vai para "Last Name"
+      lastName: " - WORKSHOP",   // fixo, vai para "Last Name"
       cargo,
       empresa,
       email,
@@ -80,34 +80,33 @@ export default function Form() {
         'p-4 sm:p-6 text-white w-full max-w-xl space-y-4 mx-auto pt-20'
       }
     >
-      <div className="flex flex-col md:flex-row md:gap-4 w-full">
-        <label className="flex flex-col flex-1">
-          <span className="mb-1 text-sm sm:text-base font-medium">
-            Nome:<span className="text-red-400 ml-1">*</span>
-          </span>
-          <input
-            type="text"
-            value={nome}
-            onChange={e => setNome(e.target.value)}
-            placeholder="Digite seu nome"
-            required
-            className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
-          />
-        </label>
-        <label className="flex flex-col flex-1 mt-4 md:mt-0">
-          <span className="mb-1 text-sm sm:text-base font-medium">
-            Empresa:<span className="text-red-400 ml-1">*</span>
-          </span>
-          <input
-            type="text"
-            value={empresa}
-            onChange={e => setEmpresa(e.target.value)}
-            placeholder="Digite o nome da empresa"
-            required
-            className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
-          />
-        </label>
-      </div>
+      {/* Todos os campos empilhados */}
+      <label className="flex flex-col">
+        <span className="mb-1 text-sm sm:text-base font-medium">
+          Nome:<span className="text-red-400 ml-1">*</span>
+        </span>
+        <input
+          type="text"
+          value={nome}
+          onChange={e => setNome(e.target.value)}
+          placeholder="Digite seu nome"
+          required
+          className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
+        />
+      </label>
+      <label className="flex flex-col">
+        <span className="mb-1 text-sm sm:text-base font-medium">
+          Empresa:<span className="text-red-400 ml-1">*</span>
+        </span>
+        <input
+          type="text"
+          value={empresa}
+          onChange={e => setEmpresa(e.target.value)}
+          placeholder="Digite o nome da empresa"
+          required
+          className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
+        />
+      </label>
       <label className="flex flex-col">
         <span className="mb-1 text-sm sm:text-base font-medium">Cargo/Função:</span>
         <input
@@ -151,7 +150,7 @@ export default function Form() {
         <textarea
           value={comment}
           onChange={e => setComment(e.target.value)}
-          rows={2}
+          rows={4}
           placeholder="Deixe uma observação ou sugestão"
           className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition resize-none"
         />
