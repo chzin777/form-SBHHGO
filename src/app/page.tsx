@@ -52,12 +52,12 @@ export default function Home() {
               &{' '}
               EFICIÊNCIA
               <br />
-              <span className='text-lime-300 text-6xl'>EM HOTELARIA</span>
+              <span className="text-5xl text-lime-300 md:text-6xl">EM HOTELARIA</span>
             </h1>
             <h2 className="text-white text-xl sm:text-2xl md:text-3xl mb-4 text-shadow">
               DIA {' '}
               <span className="text-lime-300">20.08</span>{' '}
-              | DAS{' '} 
+              | DAS{' '}
               <span className="text-lime-300">08H30 ÀS 12H</span>
             </h2>
             <p className="text-white/90 text-base sm:text-lg md:text-2xl">
