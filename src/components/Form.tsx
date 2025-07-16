@@ -4,6 +4,28 @@ import React, { useState } from 'react';
 import SelectArea from './SelectArea';
 import '../app/globals.css';
 
+// Webhook da n8n
+const WEBHOOK_URL = 'https://r3suprimentos.app.n8n.cloud/webhook/482345e7-09d6-460d-b7ab-17a176b73f0f';
+const WHATSAPP_NUM = '556299144217'; // Número do WhatsApp
+
+function formatTelefone(value: string) {
+  value = value.replace(/\D/g, '');
+
+  if (value.length > 11) value = value.slice(0, 11);
+
+  if (value.length > 10) {
+    value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+  } else if (value.length > 6) {
+    value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+  } else if (value.length > 2) {
+    value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+  } else {
+    value = value.replace(/(\d*)/, '($1');
+  }
+
+  return value;
+}
+
 export default function Form() {
   const [nome, setNome] = useState<string>('');
   const [cargo, setCargo] = useState<string>('');
@@ -12,10 +34,42 @@ export default function Form() {
   const [telefone, setTelefone] = useState<string>('');
   const [area, setArea] = useState<string>('');
   const [comment, setComment] = useState<string>('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const whatsappMsg = encodeURIComponent(
+    `Olá, Meu nome é ${nome}, acabei de enviar meus dados pelo formulário e gostaria de confirmar minha presença no *Workshop de Inovação & Eficiência em Hotelaria*.`
+  );
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Enviado: ${nome} — ${email} — ${area}`);
+    setLoading(true);
+
+    // Payload correto para o n8n/HubSpot
+    const payload = {
+      firstName: nome,           // nome do campo, vai para "First Name"
+      lastName: " - WORKSHOP",      // fixo, vai para "Last Name"
+      cargo,
+      empresa,
+      email,
+      phone: telefone,           // telefone para "Phone Number"
+      area,
+      comment,
+      dataEnvio: new Date().toISOString(),
+    };
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      // Redireciona para o WhatsApp após o envio
+      window.open(`https://wa.me/${WHATSAPP_NUM}?text=${whatsappMsg}`, "_blank");
+    } catch (error) {
+      alert('Erro ao enviar! Tente novamente.');
+      setLoading(false);
+    }
   };
 
   return (
@@ -26,12 +80,10 @@ export default function Form() {
         'p-4 sm:p-6 text-white w-full max-w-xl space-y-4 mx-auto pt-20'
       }
     >
-      {/* Nome e Empresa lado a lado no desktop */}
       <div className="flex flex-col md:flex-row md:gap-4 w-full">
-        {/* Nome */}
         <label className="flex flex-col flex-1">
           <span className="mb-1 text-sm sm:text-base font-medium">
-            Nome<span className="text-red-400 ml-1">*</span>
+            Nome:<span className="text-red-400 ml-1">*</span>
           </span>
           <input
             type="text"
@@ -42,11 +94,9 @@ export default function Form() {
             className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
           />
         </label>
-
-        {/* Empresa */}
         <label className="flex flex-col flex-1 mt-4 md:mt-0">
           <span className="mb-1 text-sm sm:text-base font-medium">
-            Empresa<span className="text-red-400 ml-1">*</span>
+            Empresa:<span className="text-red-400 ml-1">*</span>
           </span>
           <input
             type="text"
@@ -58,10 +108,8 @@ export default function Form() {
           />
         </label>
       </div>
-
-      {/* Cargo/Função */}
       <label className="flex flex-col">
-        <span className="mb-1 text-sm sm:text-base font-medium">Cargo/Função</span>
+        <span className="mb-1 text-sm sm:text-base font-medium">Cargo/Função:</span>
         <input
           type="text"
           value={cargo}
@@ -70,11 +118,9 @@ export default function Form() {
           className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
         />
       </label>
-
-      {/* E-mail */}
       <label className="flex flex-col">
         <span className="mb-1 text-sm sm:text-base font-medium">
-          E-mail<span className="text-red-400 ml-1">*</span>
+          E-mail:<span className="text-red-400 ml-1">*</span>
         </span>
         <input
           type="email"
@@ -85,28 +131,23 @@ export default function Form() {
           className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
         />
       </label>
-
-      {/* Telefone/Whatsapp */}
       <label className="flex flex-col">
         <span className="mb-1 text-sm sm:text-base font-medium">
-          Telefone/Whatsapp<span className="text-red-400 ml-1">*</span>
+          Telefone (Whatsapp):<span className="text-red-400 ml-1">*</span>
         </span>
         <input
           type="tel"
           value={telefone}
-          onChange={e => setTelefone(e.target.value)}
+          onChange={e => setTelefone(formatTelefone(e.target.value))}
           placeholder="Digite seu telefone"
           required
+          maxLength={15}
           className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
         />
       </label>
-
-      {/* Select de Área */}
       <SelectArea area={area} setArea={setArea} />
-
-      {/* Comentário */}
       <label className="flex flex-col">
-        <span className="mb-1 text-sm sm:text-base font-medium">Comentário (opcional)</span>
+        <span className="mb-1 text-sm sm:text-base font-medium">Comentário (opcional):</span>
         <textarea
           value={comment}
           onChange={e => setComment(e.target.value)}
@@ -115,13 +156,12 @@ export default function Form() {
           className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition resize-none"
         />
       </label>
-
-      {/* Botão Enviar */}
       <button
         type="submit"
-        className="w-full bg-white/20 hover:bg-white/30 text-white font-semibold py-2 rounded-md border border-white/20 transition-colors duration-200 text-sm sm:text-base"
+        disabled={loading}
+        className="w-full bg-white/20 hover:bg-white/30 text-white font-semibold py-2 rounded-md border border-white/20 transition-colors duration-200 text-sm sm:text-base cursor-pointer"
       >
-        Enviar
+        {loading ? 'Enviando...' : 'Enviar'}
       </button>
     </form>
   );

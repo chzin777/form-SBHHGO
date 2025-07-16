@@ -19,7 +19,7 @@ export default function SelectArea({
 }) {
   return (
     <div className="flex flex-col mb-4">
-      <span className="mb-1 text-sm font-medium">
+      <span className="mb-1 text-md font-medium">
         Áreas de maior interesse no simpósio:
         <span className="text-red-400 ml-1">*</span>
       </span>

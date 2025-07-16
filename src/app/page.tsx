@@ -47,16 +47,18 @@ export default function Home() {
           {/* TEXTO */}
           <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
             <h1 className="text-white text-2xl sm:text-3xl md:text-4xl mb-4 text-shadow font-bold">
-              <span className="text-blue-200">WORK</span>
-              <span className='text-lime-300'>SHOP</span>{' - '}
-              <span className="text-blue-200">INOVAÇÃO</span>{' '}
-              <span className="text-lime-300">&</span>{' '}
-              <span className="text-blue-200">EFICIÊNCIA</span> EM HOTELARIA
+              WORKSHOP{' - '}
+              INOVAÇÃO{' '}
+              &{' '}
+              EFICIÊNCIA
+              <br />
+              <span className='text-lime-300 text-8xl'>EM HOTELARIA</span>
             </h1>
             <h2 className="text-white text-xl sm:text-2xl md:text-3xl mb-4 text-shadow">
-              <span className="text-blue-200">DIA</span>{' '}
+              DIA {' '}
               <span className="text-lime-300">20.08</span>{' '}
-              <span className="text-blue-200"> | DAS 08H30 ÀS 12H</span>
+              | DAS{' '} 
+              <span className="text-lime-300">08H30 ÀS 12H</span>
             </h2>
             <p className="text-white/90 text-base sm:text-lg md:text-2xl">
               Inscreva-se no nosso simpósio e descubra como transformar seus processos.
