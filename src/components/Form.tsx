@@ -66,7 +66,7 @@ export default function Form() {
 
       // Redireciona para o WhatsApp após o envio
       window.open(`https://wa.me/${WHATSAPP_NUM}?text=${whatsappMsg}`, "_blank");
-    } catch (error) {
+    } catch {
       alert('Erro ao enviar! Tente novamente.');
       setLoading(false);
     }
