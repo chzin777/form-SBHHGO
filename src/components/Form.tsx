@@ -116,6 +116,7 @@ export default function Form() {
           'p-4 sm:p-6 text-white w-full max-w-xl space-y-4 mx-auto pt-20'
         }
       >
+        <span className='font-bold'>Preencha o formulário abaixo para confirmar sua participação:</span>
         <label className="flex flex-col">
           <span className="mb-1 text-sm sm:text-base font-medium">
             Nome:<span className="text-red-400 ml-1">*</span>
@@ -195,7 +196,7 @@ export default function Form() {
           disabled={loading}
           className="w-full bg-white/20 hover:bg-white/30 text-white font-semibold py-2 rounded-md border border-white/20 transition-colors duration-200 text-sm sm:text-base cursor-pointer"
         >
-          {loading ? 'Enviando...' : 'Enviar'}
+          {loading ? 'Confirmando...' : 'Confirmar Participação!'}
         </button>
       </form>
     </>
