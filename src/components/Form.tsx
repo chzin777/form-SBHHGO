@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import SelectArea from './SelectArea';
-import Toast from './Toast'; // <-- Importa o componente Toast
+import Toast from './Toast';
 import '../app/globals.css';
 
 const WEBHOOK_URL = 'https://r3suprimentos.app.n8n.cloud/webhook/482345e7-09d6-460d-b7ab-17a176b73f0f';
@@ -35,6 +35,7 @@ export default function Form() {
   const [area, setArea] = useState('');
   const [comment, setComment] = useState('');
   const [loading, setLoading] = useState(false);
+  const [privacyChecked, setPrivacyChecked] = useState(false);
 
   // Estados do toast
   const [toastShow, setToastShow] = useState(false);
@@ -47,6 +48,15 @@ export default function Form() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!privacyChecked) {
+      setToastType('error');
+      setToastMessage('Você precisa aceitar a política de privacidade para enviar o formulário.');
+      setToastShow(true);
+      setTimeout(() => setToastShow(false), 3500);
+      return;
+    }
+
     setLoading(true);
 
     const payload = {
@@ -76,6 +86,7 @@ export default function Form() {
       setTelefone('');
       setArea('');
       setComment('');
+      setPrivacyChecked(false);
       setLoading(false);
 
       // Mostra toast de sucesso
@@ -189,6 +200,31 @@ export default function Form() {
             placeholder="Deixe uma observação ou sugestão"
             className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition resize-none"
           />
+        </label>
+
+        {/* Checkbox de política de privacidade */}
+        <label className="flex flex-col gap-1 text-sm sm:text-base font-medium">
+          <span className="flex items-start gap-2">
+            <input
+              type="checkbox"
+              checked={privacyChecked}
+              onChange={e => setPrivacyChecked(e.target.checked)}
+              required
+              className="accent-white w-4 h-4 mt-1"
+            />
+            <span>
+              Estou de acordo com a&nbsp;
+              <a
+                href="https://www.r3suprimentos.com.br/politica-de-privacidade"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-blue-300 hover:text-blue-400 transition-colors"
+              >
+                política de privacidade
+              </a>
+              &nbsp;deste formulário.<span className="text-red-400 ml-1">*</span>
+            </span>
+          </span>
         </label>
         <button
           type="submit"
