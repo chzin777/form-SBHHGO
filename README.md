@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Workshop | Inovação & Eficiência em Hotelaria
 
-## Getting Started
+<div align="center">
+  <img src="https://i.postimg.cc/SNSqbD6x/Screenshot-2025-07-18-18-24-37.png" alt="Workshop R3 Hotelaria" style="width: 70%; max-width: 900px;">
+</div>
 
-First, run the development server:
+## 🌐 Acesse online:  
+[https://workshop-iota-gilt.vercel.app](https://workshop-iota-gilt.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Sobre o Projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Esta é uma landing page para inscrição no **Workshop - Inovação & Eficiência em Hotelaria** promovido pela R3 Suprimentos.  
+O formulário coleta dados completos do participante, integrando-se ao HubSpot via N8N para gerenciamento dos leads. Após o envio, o usuário é automaticamente redirecionado para o WhatsApp para receber mais informações.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Funcionalidades
 
-To learn more about Next.js, take a look at the following resources:
+- Formulário de inscrição com validação de campos obrigatórios
+- Envio automático dos dados para o HubSpot através do workflow no N8N
+- Redirecionamento do usuário para o WhatsApp após a inscrição
+- Layout moderno, responsivo e identidade visual R3 Suprimentos
+- Checkbox de consentimento com a política de privacidade
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tecnologias Utilizadas
 
-## Deploy on Vercel
+- **Next.js**
+- **React**
+- **TypeScript** (obrigatório)
+- **HTML5 & CSS3**
+- **Tailwind CSS** (para estilização)
+- **Integração N8N** (workflow para envio dos leads ao HubSpot)
+- **Integração com WhatsApp** (via link após envio)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Imagem de Apresentação
+
+![Screenshot do site](https://i.postimg.cc/SNSqbD6x/Screenshot-2025-07-18-18-24-37.png)
+
+---
+
+## Como usar
+
+1. **Clone ou baixe este repositório**
+
+2. **Instale as dependências:**
+    ```bash
+    npm install
+    # ou
+    yarn install
+    ```
+
+3. **Configure as variáveis de ambiente:**  
+   Crie um arquivo `.env.local` na raiz do projeto com as URLs e chaves do seu endpoint do N8N (utilizado para enviar leads ao HubSpot).
+
+4. **Execute o projeto em ambiente de desenvolvimento:**
+    ```bash
+    npm run dev
+    # ou
+    yarn dev
+    ```
+    Acesse em [http://localhost:3000](http://localhost:3000).
+
+5. **Para build e produção:**
+    ```bash
+    npm run build
+    npm start
+    # ou
+    yarn build
+    yarn start
+    ```
+
+---
+
+## Fluxo de Integração
+
+1. Usuário preenche e envia o formulário.
+2. Os dados são enviados via API para o N8N.
+3. O workflow do N8N faz a integração e cria/atualiza o lead no HubSpot.
+4. Após o envio, o usuário é redirecionado automaticamente para o WhatsApp.
+
+---
+
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+## Contato
+
+Desenvolvido por **Christofer Henrique** para R3 Suprimentos.  
+Dúvidas? Sugestões? Fale comigo!
+
+---
