@@ -108,7 +108,6 @@ export default function Form() {
         type={toastType}
         onClose={() => setToastShow(false)}
       />
-
       <form
         onSubmit={handleSubmit}
         className={
@@ -116,7 +115,7 @@ export default function Form() {
           'p-4 sm:p-6 text-white w-full max-w-xl space-y-4 mx-auto pt-20'
         }
       >
-        <span className='font-bold'>Preencha o formulário abaixo para confirmar sua participação:</span>
+        <span className='text-lg sm:text-xl md:text-2xl font-bold'>Preencha o formulário abaixo para confirmar sua participação:</span>
         <label className="flex flex-col">
           <span className="mb-1 text-sm sm:text-base font-medium">
             Nome:<span className="text-red-400 ml-1">*</span>
