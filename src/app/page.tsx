@@ -58,7 +58,7 @@ export default function Home() {
               DIA {' '}
               <span className="text-lime-300">20.08</span>{' '}
               | DAS{' '}
-              <span className="text-lime-300">08H30 ÀS 12H</span>
+              <span className="text-lime-300">09H ÀS 12H</span>
             </h2>
             <p className="text-white/90 text-base sm:text-lg md:text-2xl">
               Inscreva-se no nosso simpósio e descubra como transformar seus processos.
