@@ -35,7 +35,6 @@ export default function Form() {
   const [area, setArea] = useState('');
   const [comment, setComment] = useState('');
   const [loading, setLoading] = useState(false);
-  const [privacyChecked, setPrivacyChecked] = useState(false);
 
   // Estados do toast
   const [toastShow, setToastShow] = useState(false);
@@ -48,14 +47,6 @@ export default function Form() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!privacyChecked) {
-      setToastType('error');
-      setToastMessage('Você precisa aceitar a política de privacidade para enviar o formulário.');
-      setToastShow(true);
-      setTimeout(() => setToastShow(false), 3500);
-      return;
-    }
 
     setLoading(true);
 
@@ -86,7 +77,6 @@ export default function Form() {
       setTelefone('');
       setArea('');
       setComment('');
-      setPrivacyChecked(false);
       setLoading(false);
 
       // Mostra toast de sucesso
