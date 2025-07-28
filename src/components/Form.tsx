@@ -126,7 +126,7 @@ export default function Form() {
           'p-4 sm:p-6 text-white w-full max-w-xl space-y-4 mx-auto pt-20'
         }
       >
-        <span className='text-lg sm:text-xl md:text-2xl font-bold'>Preencha o formulário abaixo para confirmar sua participação:</span>
+        <span className='text-lg sm:text-xl md:text-xl font-bold'>Preencha o formulário abaixo para confirmar sua participação:</span>
         <label className="flex flex-col">
           <span className="mb-1 text-sm sm:text-base font-medium">
             Nome:<span className="text-red-400 ml-1">*</span>
@@ -196,35 +196,10 @@ export default function Form() {
           <textarea
             value={comment}
             onChange={e => setComment(e.target.value)}
-            rows={4}
+            rows={2}
             placeholder="Deixe uma observação ou sugestão"
             className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition resize-none"
           />
-        </label>
-
-        {/* Checkbox de política de privacidade */}
-        <label className="flex flex-col gap-1 text-sm sm:text-base font-medium">
-          <span className="flex items-start gap-2">
-            <input
-              type="checkbox"
-              checked={privacyChecked}
-              onChange={e => setPrivacyChecked(e.target.checked)}
-              required
-              className="accent-white w-4 h-4 mt-1"
-            />
-            <span>
-              Estou de acordo com a&nbsp;
-              <a
-                href="https://www.r3suprimentos.com.br/politica-de-privacidade"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-blue-300 hover:text-blue-400 transition-colors"
-              >
-                política de privacidade
-              </a>
-              &nbsp;deste formulário.<span className="text-red-400 ml-1">*</span>
-            </span>
-          </span>
         </label>
         <button
           type="submit"
