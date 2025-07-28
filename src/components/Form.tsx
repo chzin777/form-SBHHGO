@@ -88,7 +88,7 @@ export default function Form() {
       setTimeout(() => setToastShow(false), 3500);
 
       // Redireciona para o WhatsApp após o envio
-      window.open(`https://wa.me/${WHATSAPP_NUM}?text=${whatsappMsg}`,);
+      window.location.href = `https://wa.me/${WHATSAPP_NUM}?text=${whatsappMsg}`;
 
     } catch {
       setLoading(false);
