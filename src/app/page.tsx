@@ -45,8 +45,8 @@ export default function Home() {
         {/* Conteúdo */}
         <div className="relative flex flex-col md:flex-row items-center justify-between h-full px-4 sm:px-6 md:px-20 gap-8 pb-10 max-w-[100vw]">
           {/* TEXTO */}
-          <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-            <h1 className="text-white text-2xl sm:text-3xl md:text-4xl mb-4 text-shadow font-bold">
+          <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 text-shadow">
+            <h1 className="text-white text-2xl sm:text-3xl md:text-4xl mb-4 font-bold">
               WORKSHOP{' - '}
               INOVAÇÃO{' '}
               &{' '}
@@ -60,8 +60,12 @@ export default function Home() {
               | DAS{' '}
               <span className="text-lime-300">09H ÀS 12H</span>
             </h2>
+            <p className='text-white/90 text-base sm:text-lg md:text-2xl mt-[-15px]'>
+              Local: Palladium  Eventos e Festas, <span className='text-lime-300 font-bold'>Caldas Novas - GO</span>
+            </p>
+            <br />
             <p className="text-white/90 text-base sm:text-lg md:text-2xl">
-              Inscreva-se no nosso simpósio e descubra como transformar seus processos.
+              <span className='text-lime-300 font-bold underline'>Inscreva-se</span> no nosso simpósio e descubra como transformar seus processos.
             </p>
           </div>
           {/* FORMULÁRIO */}

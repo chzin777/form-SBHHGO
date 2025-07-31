@@ -113,7 +113,7 @@ export default function Form() {
         onSubmit={handleSubmit}
         className={
           'backdrop-blur-md bg-white/5 border border-white/20 rounded-2xl ' +
-          'p-4 sm:p-6 text-white w-full max-w-xl space-y-4 mx-auto pt-20'
+          'p-4 sm:p-6 text-white w-full max-w-xl space-y-4 mx-auto'
         }
       >
         <span className='text-lg sm:text-xl md:text-xl font-bold'>Preencha o formulário abaixo para confirmar sua participação:</span>
