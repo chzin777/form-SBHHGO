@@ -16,7 +16,7 @@ export default function Toast({ show, message, onClose, type = "success" }: Toas
         px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2
         text-white text-base sm:text-lg border backdrop-blur-md
         ${type === "success"
-          ? "bg-white/10 border-white/30"
+          ? "bg-[#263165]/90 border-white/30"
           : "bg-red-600/80 border-red-400/50"}
         animate-fade-in
       `}
