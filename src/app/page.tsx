@@ -34,16 +34,17 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/60 z-10" />
         </div>
         {/* Conteúdo central */}
-        <div className="relative z-20 flex items-center justify-center gap-4">
+        <div className="relative z-20 flex flex-col items-center justify-center text-center">
           <Image
             src="/images/logo.png"
             alt="Logo Workshop"
-            width={100}
-            height={100}
-            className="drop-shadow-lg"
+            width={160}
+            height={160}
+            className="drop-shadow-lg w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 mb-4"
             priority
           />
-          <h1 className="text-white text-4xl md:text-5xl font-bold font-[Montserrat] tracking-wide drop-shadow-lg">Workshop</h1>
+          <h1 className="text-white text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-[Montserrat] tracking-wide drop-shadow-lg mb-3">WORKSHOP</h1>
+          <h2 className="text-lime-300 text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold font-[Montserrat] tracking-widest drop-shadow-lg">CALDAS NOVAS - GO</h2>
         </div>
       </section>
       {/* Section colorida com texto e quebras de linha, layout similar à imagem enviada */}
@@ -58,7 +59,7 @@ export default function Home() {
             </span>
           </h3>
           <div className="text-white font-bold text-base sm:text-lg md:text-2xl mb-1 font-[Montserrat]">
-            DIA 20.08 | DAS 09H ÀS 12H
+            DIA 20.08 | DAS 08H30 ÀS 12H
           </div>
           <div className="text-white font-bold text-base sm:text-lg md:text-2xl font-[Montserrat] mb-8">
             Local: Palladium Eventos e Festas, Caldas Novas - GO
@@ -112,7 +113,7 @@ export default function Home() {
               <Image src="/images/tork.png" alt="Tork" width={200} height={90} className="object-contain w-full h-full" />
             </div>
             <div className="bg-[#eaeaea] rounded-3xl flex justify-center items-center min-w-[180px] max-w-[240px] h-[130px]">
-              <Image src="/images/spartan.png" alt="Spartan" width={90} height={50} className="object-contain w-full h-full" />
+              <Image src="/images/spartan.png" alt="Spartan" width={70} height={40} className="object-contain" />
             </div>
           </div>
         </div>
@@ -330,7 +331,7 @@ export default function Home() {
           <div className="flex gap-6 mb-4">
             {/* Facebook */}
             <a 
-              href="#" 
+              href="https://www.facebook.com/r3suprimentos?locale=pt_BR" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors duration-200"
@@ -342,7 +343,7 @@ export default function Home() {
 
             {/* LinkedIn */}
             <a 
-              href="#" 
+              href="https://www.linkedin.com/company/r3suprimentos/posts/?feedView=all" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors duration-200"
@@ -354,7 +355,7 @@ export default function Home() {
 
             {/* Instagram */}
             <a 
-              href="#" 
+              href="https://www.instagram.com/r3suprimentos/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors duration-200"
