@@ -42,7 +42,7 @@ export default function Form() {
   const [toastType, setToastType] = useState<'success' | 'error'>('success');
 
   const whatsappMsg = encodeURIComponent(
-    `Olá, Meu nome é ${nome}, e gostaria de confirmar minha presença no Workshop de Inovação & Eficiência em Hotelaria.`
+    `Olá, Meu nome é ${nome}, da empresa ${empresa}, e gostaria de confirmar minha presença no Workshop de Inovação & Eficiência em Hotelaria.`
   );
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -112,64 +112,55 @@ export default function Form() {
       <form
         onSubmit={handleSubmit}
         className={
-          'backdrop-blur-md bg-white/5 border border-white/20 rounded-2xl ' +
-          'p-4 sm:p-6 text-white w-full max-w-xl space-y-4 mx-auto'
+          'bg-white rounded-2xl shadow-lg p-6 sm:p-8 w-full max-w-xl space-y-5 mx-auto border border-[#263165]/20'
         }
       >
-        <span className='text-lg sm:text-xl md:text-xl font-bold'>Preencha o formulário abaixo para confirmar sua participação:</span>
+        <span className='text-[#263165] text-lg sm:text-xl md:text-xl font-bold font-[Montserrat] mb-2 block'>Preencha o formulário abaixo para confirmar sua participação:</span>
         <label className="flex flex-col">
-          <span className="mb-1 text-sm sm:text-base font-medium">
-            Nome:<span className="text-red-400 ml-1">*</span>
-          </span>
+          <span className="mb-1 text-sm sm:text-base font-medium text-[#263165]">Nome:<span className="text-red-500 ml-1">*</span></span>
           <input
             type="text"
             value={nome}
             onChange={e => setNome(e.target.value)}
             placeholder="Digite seu nome"
             required
-            className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
+            className="px-3 py-2 rounded-lg bg-[#f5f7fa] text-[#263165] border border-[#263165]/30 placeholder-[#263165]/60 text-sm sm:text-base outline-none focus:ring-2 focus:ring-[#009FE3] transition font-[Montserrat]"
           />
         </label>
         <label className="flex flex-col">
-          <span className="mb-1 text-sm sm:text-base font-medium">
-            Empresa:<span className="text-red-400 ml-1">*</span>
-          </span>
+          <span className="mb-1 text-sm sm:text-base font-medium text-[#263165]">Empresa:<span className="text-red-500 ml-1">*</span></span>
           <input
             type="text"
             value={empresa}
             onChange={e => setEmpresa(e.target.value)}
             placeholder="Digite o nome da empresa"
             required
-            className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
+            className="px-3 py-2 rounded-lg bg-[#f5f7fa] text-[#263165] border border-[#263165]/30 placeholder-[#263165]/60 text-sm sm:text-base outline-none focus:ring-2 focus:ring-[#009FE3] transition font-[Montserrat]"
           />
         </label>
         <label className="flex flex-col">
-          <span className="mb-1 text-sm sm:text-base font-medium">Cargo/Função:</span>
+          <span className="mb-1 text-sm sm:text-base font-medium text-[#263165]">Cargo/Função:</span>
           <input
             type="text"
             value={cargo}
             onChange={e => setCargo(e.target.value)}
             placeholder="Digite seu cargo/função"
-            className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
+            className="px-3 py-2 rounded-lg bg-[#f5f7fa] text-[#263165] border border-[#263165]/30 placeholder-[#263165]/60 text-sm sm:text-base outline-none focus:ring-2 focus:ring-[#009FE3] transition font-[Montserrat]"
           />
         </label>
         <label className="flex flex-col">
-          <span className="mb-1 text-sm sm:text-base font-medium">
-            E-mail:<span className="text-red-400 ml-1">*</span>
-          </span>
+          <span className="mb-1 text-sm sm:text-base font-medium text-[#263165]">E-mail:<span className="text-red-500 ml-1">*</span></span>
           <input
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="Digite seu e-mail"
             required
-            className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
+            className="px-3 py-2 rounded-lg bg-[#f5f7fa] text-[#263165] border border-[#263165]/30 placeholder-[#263165]/60 text-sm sm:text-base outline-none focus:ring-2 focus:ring-[#009FE3] transition font-[Montserrat]"
           />
         </label>
         <label className="flex flex-col">
-          <span className="mb-1 text-sm sm:text-base font-medium">
-            Telefone (Whatsapp):<span className="text-red-400 ml-1">*</span>
-          </span>
+          <span className="mb-1 text-sm sm:text-base font-medium text-[#263165]">Telefone (Whatsapp):<span className="text-red-500 ml-1">*</span></span>
           <input
             type="tel"
             value={telefone}
@@ -177,24 +168,24 @@ export default function Form() {
             placeholder="Digite seu telefone"
             required
             maxLength={15}
-            className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition"
+            className="px-3 py-2 rounded-lg bg-[#f5f7fa] text-[#263165] border border-[#263165]/30 placeholder-[#263165]/60 text-sm sm:text-base outline-none focus:ring-2 focus:ring-[#009FE3] transition font-[Montserrat]"
           />
         </label>
         <SelectArea area={area} setArea={setArea} />
         <label className="flex flex-col">
-          <span className="mb-1 text-sm sm:text-base font-medium">Comentário (opcional):</span>
+          <span className="mb-1 text-sm sm:text-base font-medium text-[#263165]">Comentário (opcional):</span>
           <textarea
             value={comment}
             onChange={e => setComment(e.target.value)}
             rows={2}
             placeholder="Deixe uma observação ou sugestão"
-            className="px-3 py-2 rounded-md bg-white/10 text-white border border-white/20 placeholder-white text-sm sm:text-base outline-none focus:ring-2 focus:ring-white/30 transition resize-none"
+            className="px-3 py-2 rounded-lg bg-[#f5f7fa] text-[#263165] border border-[#263165]/30 placeholder-[#263165]/60 text-sm sm:text-base outline-none focus:ring-2 focus:ring-[#009FE3] transition resize-none font-[Montserrat]"
           />
         </label>
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-white/20 hover:bg-white/30 text-white font-semibold py-2 rounded-md border border-white/20 transition-colors duration-200 text-sm sm:text-base cursor-pointer"
+          className="w-full bg-[#263165] hover:bg-[#009FE3] text-white font-semibold py-3 rounded-lg border-none transition-colors duration-200 text-base font-[Montserrat] cursor-pointer shadow-md"
         >
           {loading ? 'Confirmando...' : 'Confirmar Participação!'}
         </button>
