@@ -5,7 +5,6 @@ import SelectArea from './SelectArea';
 import Toast from './Toast';
 
 const WEBHOOK_URL = 'https://r3suprimentos.app.n8n.cloud/webhook/482345e7-09d6-460d-b7ab-17a176b73f0f';
-const WHATSAPP_NUM = '556299144217';
 
 function formatTelefone(value: string) {
   value = value.replace(/\D/g, '');
@@ -39,10 +38,6 @@ export default function Form() {
   const [toastShow, setToastShow] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState<'success' | 'error'>('success');
-
-  const whatsappMsg = encodeURIComponent(
-    `Olá, Meu nome é ${nome}, da empresa ${empresa}, e gostaria de confirmar minha presença no Workshop de Inovação & Eficiência em Hotelaria.`
-  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
