@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import SelectArea from './SelectArea';
 import Toast from './Toast';
-import '../app/globals.css';
 
 const WEBHOOK_URL = 'https://r3suprimentos.app.n8n.cloud/webhook/482345e7-09d6-460d-b7ab-17a176b73f0f';
 const WHATSAPP_NUM = '556299144217';
@@ -87,9 +86,6 @@ export default function Form() {
       // Fecha o toast depois de 3.5s
       setTimeout(() => setToastShow(false), 3500);
 
-      // Redireciona para o WhatsApp após o envio
-      window.location.href = `https://wa.me/${WHATSAPP_NUM}?text=${whatsappMsg}`;
-
     } catch {
       setLoading(false);
 
@@ -112,10 +108,10 @@ export default function Form() {
       <form
         onSubmit={handleSubmit}
         className={
-          'bg-white rounded-2xl shadow-lg p-6 sm:p-8 w-full max-w-xl space-y-5 mx-auto border border-[#263165]/20'
+          'bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 sm:p-8 w-full max-w-xl space-y-5 mx-auto border border-white/30'
         }
       >
-        <span className='text-[#263165] text-lg sm:text-xl md:text-xl font-bold font-[Montserrat] mb-2 block'>Preencha o formulário abaixo para confirmar sua participação:</span>
+        <span className='text-[#263165] text-lg sm:text-xl md:text-xl font-bold font-[Montserrat] mb-2 block'>Preencha o formulário abaixo para sabermos melhor como te atender:</span>
         <label className="flex flex-col">
           <span className="mb-1 text-sm sm:text-base font-medium text-[#263165]">Nome:<span className="text-red-500 ml-1">*</span></span>
           <input
