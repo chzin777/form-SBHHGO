@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-br" className={montserrat.className}>
       <head>
-        <title>Workshop Inovação & Eficiência em Hotelaria</title>
+        <title>R3 - SBHHGO</title>
         <meta
           name="description"
           content="Inscreva-se no nosso simpósio e descubra como transformar seus processos na hotelaria."

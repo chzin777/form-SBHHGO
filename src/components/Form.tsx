@@ -46,7 +46,7 @@ export default function Form() {
 
     const payload = {
       firstName: nome,
-      lastName: " - WORKSHOP",
+      lastName: " - SBHHGO",
       cargo,
       empresa,
       email,
